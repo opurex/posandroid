@@ -6,3 +6,15 @@ channel = "stable-24_05"
 
 [deployment]
 run = ["sh", "-c", "./gradlew"]
+
+[workflows]
+runButton = "Build App"
+
+[[workflows.workflow]]
+name = "Build App"
+author = 44077844
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "./gradlew assembleVanillaDebug"
