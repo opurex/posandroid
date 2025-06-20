@@ -1,29 +1,43 @@
 
-<?xml version="1.0" encoding="utf-8"?>
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <item>
-        <shape android:shape="oval">
-            <gradient
-                android:startColor="#607D8B"
-                android:endColor="#263238"
-                android:angle="135" />
-            <stroke
-                android:width="2dp"
-                android:color="#37474F" />
-        </shape>
-    </item>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
     
-    <item android:inset="6dp">
-        <shape android:shape="oval">
-            <stroke
-                android:width="1dp"
-                android:color="#FFFFFF" />
-        </shape>
-    </item>
+    <!-- Outer circle -->
+    <path
+        android:pathData="M24,24 m-22,0 a 22,22 0 1,1 44,0 a 22,22 0 1,1 -44,0"
+        android:fillColor="#FFD700"
+        android:strokeColor="#FF8F00"
+        android:strokeWidth="2"/>
     
-    <item android:inset="10dp">
-        <shape android:shape="oval">
-            <solid android:color="#66FFFFFF" />
-        </shape>
-    </item>
-</layer-list>
+    <!-- Inner circle -->
+    <path
+        android:pathData="M24,24 m-18,0 a 18,18 0 1,1 36,0 a 18,18 0 1,1 -36,0"
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="1"/>
+    
+    <!-- Value "50¢" -->
+    <group
+        android:translateX="24"
+        android:translateY="20">
+        <path
+            android:pathData="M-6,-6 L-6,2 L-2,2 Q2,2 2,-2 Q2,-6 -2,-6 Z M-6,6 L2,6 Q6,6 6,10 Q6,10 2,10 L-6,10 Z"
+            android:fillColor="#FFFFFF"/>
+        <path
+            android:pathData="M4,-6 Q8,-6 8,-2 Q8,2 4,2 L4,6 Q8,6 8,10 Q4,10 4,10 L4,-6 Z"
+            android:fillColor="#FFFFFF"/>
+    </group>
+    <group
+        android:translateX="24"
+        android:translateY="32">
+        <path
+            android:pathData="M-2,-2 Q2,-2 2,2 Q-2,2 -2,-2 Z"
+            android:fillColor="#FFFFFF"/>
+        <path
+            android:pathData="M2,-2 Q6,-2 6,2 Q2,2 2,-2 Z"
+            android:fillColor="#FFFFFF"/>
+    </group>
+</vector>

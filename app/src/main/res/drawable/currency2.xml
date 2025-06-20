@@ -1,31 +1,30 @@
 
-<?xml version="1.0" encoding="utf-8"?>
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <item>
-        <shape android:shape="rectangle">
-            <corners android:radius="8dp" />
-            <gradient
-                android:startColor="#F44336"
-                android:endColor="#B71C1C"
-                android:angle="135" />
-            <stroke
-                android:width="2dp"
-                android:color="#C62828" />
-        </shape>
-    </item>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="64dp"
+    android:height="40dp"
+    android:viewportWidth="64"
+    android:viewportHeight="40">
     
-    <item android:inset="8dp">
-        <shape android:shape="rectangle">
-            <corners android:radius="4dp" />
-            <stroke
-                android:width="1dp"
-                android:color="#FFFFFF" />
-        </shape>
-    </item>
+    <!-- Background rectangle -->
+    <path
+        android:pathData="M4,0 L60,0 Q64,0 64,4 L64,36 Q64,40 60,40 L4,40 Q0,40 0,36 L0,4 Q0,0 4,0 Z"
+        android:fillColor="#607D8B"
+        android:strokeColor="#263238"
+        android:strokeWidth="2"/>
     
-    <item android:inset="12dp">
-        <shape android:shape="oval">
-            <solid android:color="#66FFFFFF" />
-        </shape>
-    </item>
-</layer-list>
+    <!-- Inner border -->
+    <path
+        android:pathData="M8,4 L56,4 Q60,4 60,8 L60,32 Q60,36 56,36 L8,36 Q4,36 4,32 L4,8 Q4,4 8,4 Z"
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="1"/>
+    
+    <!-- Value "2" -->
+    <group
+        android:translateX="32"
+        android:translateY="20">
+        <path
+            android:pathData="M-4,-8 Q0,-8 0,-4 Q0,0 -4,0 L-4,4 L4,4 Q4,8 0,8 L-4,8 L-4,-8 Z"
+            android:fillColor="#FFFFFF"/>
+    </group>
+</vector>
