@@ -1,0 +1,137 @@
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="@color/background_light">
+
+    <!-- Header -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/biometric_setup_title"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/primary"
+        android:gravity="center"
+        android:layout_marginBottom="32dp" />
+
+    <!-- Biometric Icon -->
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_fingerprint"
+        android:tint="@color/primary"
+        android:layout_marginBottom="24dp" />
+
+    <!-- Status Card -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:elevation="4dp"
+        android:radius="12dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/biometric_status_title"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/biometric_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/checking_biometric_status"
+                android:textSize="14sp"
+                android:textColor="@color/text_secondary" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- Enable/Disable Toggle -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:elevation="4dp"
+        android:radius="12dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="20dp"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/enable_biometric_auth"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/biometric_auth_description"
+                    android:textSize="12sp"
+                    android:textColor="@color/text_secondary"
+                    android:layout_marginTop="4dp" />
+
+            </LinearLayout>
+
+            <Switch
+                android:id="@+id/biometric_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- Test Button -->
+    <Button
+        android:id="@+id/test_biometric_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/test_biometric_auth"
+        android:background="@drawable/btn_positive"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:padding="16dp"
+        android:enabled="false"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Info Text -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/biometric_info_text"
+        android:textSize="12sp"
+        android:textColor="@color/text_secondary"
+        android:gravity="center"
+        android:layout_marginTop="16dp" />
+
+</LinearLayout>
