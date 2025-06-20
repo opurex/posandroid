@@ -379,50 +379,33 @@
     <string name="swipe_to_delete">Swipe left to delete</string>
     <string name="swipe_to_edit">Swipe right to edit</string>
     <string name="item_deleted">Item removed from ticket</string>
-    <string name="undo">Undo</string>
-    <string name="swipe_delete_hint">Swipe left to delete</string>
-    <string name="swipe_edit_hint">Swipe right to edit</string>
+    <string name="item_edit">Edit item quantity</string>
 
-    <!-- Sales Dashboard -->
-    <string name="sales_dashboard">Sales Dashboard</string>
-    <string name="todays_sales">Today\'s Sales</string>
-    <string name="transactions">Transactions</string>
-    <string name="avg_transaction">Avg Transaction</string>
-    <string name="current_hour">Current Hour</string>
-    <string name="hourly_sales_chart">Hourly Sales</string>
-    <string name="top_products_chart">Top Products</string>
-    <string name="best_sellers">Best Sellers</string>
-    <string name="hourly_sales">Hourly Sales</string>
-    <string name="top_products">Top Products</string>
-    <string name="dashboard_load_error">Error loading dashboard data</string>
-    <string name="qty_label">Qty</string>
-    <string name="transactions_label">txns</string>
+    <!-- Enhanced Error Messages -->
+    <string name="error_network_connection">Unable to connect to server. Please check your internet connection.</string>
+    <string name="error_network_timeout">Connection timed out. The server might be busy, please try again.</string>
+    <string name="error_network_unreachable">Server unreachable. Please check your network settings.</string>
+    <string name="error_network_general">Network error occurred. Please try again later.</string>
+    <string name="error_authentication">Login failed. Please check your credentials and try again.</string>
+    <string name="error_payment_processing">Payment could not be processed. Please verify payment details.</string>
+    <string name="error_printer_connection">Printer connection failed. Please check printer status and try again.</string>
+    <string name="error_database">Data error occurred. Please restart the app or contact support.</string>
+    <string name="error_validation">Please check the entered information and try again.</string>
+    <string name="error_validation_field">%1$s: %2$s</string>
+    <string name="error_unknown">An unexpected error occurred. Please try again.</string>
+    <string name="error_device_specific">%1$s Error: %2$s</string>
 
-    <!-- Biometric Authentication -->
-    <string name="biometric_setup_title">Biometric Security</string>
-    <string name="biometric_status_title">Device Status</string>
-    <string name="checking_biometric_status">Checking biometric capabilities...</string>
-    <string name="enable_biometric_auth">Enable Biometric Authentication</string>
-    <string name="biometric_auth_description">Use fingerprint or face unlock for secure operations</string>
-    <string name="test_biometric_auth">Test Biometric Authentication</string>
-    <string name="biometric_info_text">Biometric authentication adds an extra layer of security for sensitive POS operations</string>
+    <!-- Success Messages -->
+    <string name="success_action_completed">%1$s completed successfully!</string>
+    <string name="success_transaction_saved">Transaction saved successfully</string>
+    <string name="success_payment_processed">Payment processed successfully</string>
+    <string name="success_receipt_printed">Receipt printed successfully</string>
+    <string name="success_data_synced">Data synchronized with server</string>
 
-    <string name="biometric_title_manager">Manager Authentication</string>
-    <string name="biometric_subtitle_manager">Verify your identity for manager functions</string>
-    <string name="biometric_title_sensitive">Security Check</string>
-    <string name="biometric_subtitle_sensitive">Authenticate for %s</string>
-    <string name="biometric_title_access">App Access</string>
-    <string name="biometric_subtitle_access">Unlock Opurex POS</string>
-
-    <string name="biometric_available">Biometric authentication is available</string>
-    <string name="biometric_no_hardware">No biometric hardware detected</string>
-    <string name="biometric_hw_unavailable">Biometric hardware unavailable</string>
-    <string name="biometric_none_enrolled">No biometric credentials enrolled</string>
-    <string name="biometric_unknown_error">Unknown biometric error</string>
-    <string name="biometric_not_available">Biometric authentication not available</string>
-    <string name="biometric_not_enabled">Biometric authentication is not enabled</string>
-
-    <string name="biometric_test_success">Biometric authentication successful!</string>
-    <string name="biometric_test_failed">Biometric authentication failed</string>
-    <string name="biometric_error">Authentication error: %s</string>
+    <!-- Progress Messages -->
+    <string name="progress_action_running">%1$s in progress...</string>
+    <string name="progress_processing_payment">Processing payment...</string>
+    <string name="progress_printing_receipt">Printing receipt...</string>
+    <string name="progress_syncing_data">Synchronizing data...</string>
+    <string name="progress_connecting_device">Connecting to device...</string>
 </resources>

@@ -961,15 +961,14 @@ public class Transaction extends POSConnectedTrackedActivity
                             break;
                         }
                         if (extra instanceof ReceiptDocument) {
-                            Toast.makeText(Transaction.this, getString(R.string.print_ticket_queued),
-                                    Toast.LENGTH_LONG).show();
+                            ErrorHandler.showSuccess(Transaction.this, "Receipt queued for printing");
                         } else if (extra instanceof OrderDocument) {
-                            Toast.makeText(Transaction.this, getString(R.string.print_order_queued),
-                                    Toast.LENGTH_LONG).show();
+                            ErrorHandler.showSuccess(Transaction.this, "Order queued for printing");
                         }
                         break;
                     case DeviceManagerEvent.PrintError:
-                        Toast.makeText(Transaction.this, getString(R.string.print_no_connexion), Toast.LENGTH_LONG).show();
+                        ErrorHandler.handleError(Transaction.this, ErrorHandler.ErrorType.PRINTER_CONNECTION, 
+                            "Print device connection failed");
                         break;
                     case DeviceManagerEvent.PrintDone:
                         extra = event.getExtra();
