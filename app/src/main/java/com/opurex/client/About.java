@@ -17,7 +17,7 @@
 */
 package com.opurex.client;
 
-import android.app.AlertDialog;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -28,7 +28,7 @@ import android.widget.TextView;
 public class About {
 
     public static void showAbout(Context ctx) {
-        AlertDialog.Builder b = new AlertDialog.Builder(ctx);
+        MaterialAlertDialogBuilder b = new MaterialAlertDialogBuilder(ctx);
         View content = LayoutInflater.from(ctx).inflate(R.layout.about,
                                                         null,
                                                         false);

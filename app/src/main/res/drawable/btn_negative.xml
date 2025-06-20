@@ -1,5 +1,11 @@
+
 <?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@color/btn_negative_pressed" android:state_pressed="true" />
-    <item android:drawable="@color/btn_negative" />
-</selector>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="#D32F2F">
+    <item android:id="@android:id/background">
+        <shape android:shape="rectangle">
+            <corners android:radius="@dimen/btnCornerRadius" />
+            <solid android:color="#F44336" />
+        </shape>
+    </item>
+</ripple>
