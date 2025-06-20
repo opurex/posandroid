@@ -408,4 +408,27 @@
     <string name="progress_printing_receipt">Printing receipt...</string>
     <string name="progress_syncing_data">Synchronizing data...</string>
     <string name="progress_connecting_device">Connecting to device...</string>
+    <!-- Biometric Authentication -->
+    <string name="biometric_setup_title">Biometric Security Setup</string>
+
+    <!-- Theme and Accessibility -->
+    <string name="dark_mode">Dark Mode</string>
+    <string name="large_text">Large Text</string>
+    <string name="theme_settings">Theme Settings</string>
+
+    <!-- Stock Alerts -->
+    <string name="stock_alert_channel_name">Stock Alerts</string>
+    <string name="stock_alert_channel_description">Notifications for low stock items</string>
+    <string name="low_stock_alert_title">Low Stock Alert</string>
+    <plurals name="low_stock_alert_message">
+        <item quantity="one">%d product is running low on stock</item>
+        <item quantity="other">%d products are running low on stock</item>
+    </plurals>
+    <string name="low_stock_threshold">Low Stock Threshold</string>
+    <string name="inventory_check">Check Inventory</string>
+
+    <!-- Image Cache -->
+    <string name="clear_image_cache">Clear Image Cache</string>
+    <string name="image_cache_cleared">Image cache cleared successfully</string>
+    <string name="cache_size">Cache Size: %s</string>
 </resources>
