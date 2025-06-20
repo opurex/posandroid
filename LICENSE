@@ -1,0 +1,122 @@
+# 📜 Opurex POS – Licensing Terms and Practices
+
+> This document outlines the licensing terms, practices, and third-party software usage for the Opurex POS Suite.
+
+---
+
+## 🔐 Overview
+
+Opurex POS is a hybrid Point of Sale platform maintained by ScilCoop and Opurex. It includes:
+
+- Android-based POS clients
+- Java desktop POS software
+- Cloud-based SaaS management platform
+
+As of current releases, **Opurex POS operates under a dual-license model**, combining proprietary licensing with open-source components.
+
+---
+
+## 📄 License Types
+
+### 1. Opurex Proprietary License (Default)
+
+The majority of the source code is covered under the **Opurex Proprietary License**. This includes, but is not limited to:
+
+- UI/UX implementations
+- POS workflows and synchronization logic
+- SaaS API integrations and dashboards
+- Business logic modules
+- Terminal-specific implementations
+
+**Key Terms:**
+- Redistribution of proprietary components is **not permitted** without a commercial license.
+- Reverse engineering or modifying compiled binaries is **prohibited**.
+- Commercial usage requires a written agreement with Opurex.
+- Public access to source code is **not required**, except for portions covered by external open-source licenses.
+
+---
+
+### 2. Open Source Software (OSS) Components
+
+Opurex POS makes use of the following third-party open-source libraries and SDKs. Each retains its original license.
+
+| Component                     | License         | Notes                         |
+|------------------------------|-----------------|-------------------------------|
+| Android SDK / Gradle Plugin  | Apache 2.0      | Google                        |
+| JUnit                        | EPL 1.0          | For unit testing              |
+| EasyMock + PowerMock         | Apache 2.0      | For mocking in test cases     |
+| Various Android Support Libs | Apache 2.0      | UI support                    |
+| Legacy code portions         | GPLv3           | Retained with attribution     |
+
+**GPL Components** are clearly separated and maintained under compliance with their terms.
+
+---
+
+## 🧾 GPL Attribution and Compliance
+
+We acknowledge the use of portions of legacy GPLv3-licensed code. For these:
+
+- The modified source code is available upon request, in compliance with GPLv3.
+- GPL components are **not mixed** with proprietary code in violation of licensing boundaries.
+- No part of the proprietary features is derived from GPL-licensed logic.
+
+To request source access or review compliance documentation, please contact:
+
+📧 legal@opurex.com
+
+---
+
+## 🤝 Commercial Licensing
+
+Organizations wishing to:
+
+- Deploy Opurex POS commercially
+- Integrate with private APIs
+- Receive enterprise updates and support
+
+…must obtain a **commercial license**.
+
+Contact us at 📧 hello@opurex.com for a license agreement tailored to your deployment.
+
+---
+
+## 🚫 Disclaimer
+
+Using any part of the software without understanding the license terms may result in a breach of software law.  
+By deploying Opurex POS, you agree to the conditions outlined above.
+
+---
+
+© Opurex Ortus – All rights reserved.
+
+
+---
+
+## ❗ Disclaimer of Liability
+
+**TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW**, THIS SOFTWARE IS PROVIDED “AS IS” AND “AS AVAILABLE,” WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+
+OPUREX ORTUS, AND ITS CONTRIBUTORS DO NOT WARRANT THAT:
+
+- THE SOFTWARE WILL MEET YOUR REQUIREMENTS
+- THE SOFTWARE WILL BE ERROR-FREE OR UNINTERRUPTED
+- THE RESULTS OR OUTPUTS WILL BE ACCURATE OR RELIABLE
+- ANY ERRORS WILL BE CORRECTED
+
+**YOU ASSUME ALL RISK** ARISING FROM THE USE OF THIS SOFTWARE, INCLUDING BUT NOT LIMITED TO DATA LOSS, SYSTEM FAILURE, OR SERVICE INTERRUPTIONS.
+
+IN NO EVENT SHALL OPUREX ORTUS, OR THEIR AFFILIATES BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL OR EXEMPLARY DAMAGES, INCLUDING BUT NOT LIMITED TO:
+
+- LOSS OF PROFITS
+- LOSS OF DATA
+- LOSS OF GOODWILL
+- BUSINESS INTERRUPTION
+- COMPUTER FAILURE OR MALFUNCTION
+
+WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+This limitation of liability is consistent with standard disclaimers found in Google open source projects, Motorola EULA notices for Android applications, and Square’s open-source contributions. Use of this software signifies your agreement to these terms.
+
+---
+
+© Opurex Ortus – All rights reserved.
