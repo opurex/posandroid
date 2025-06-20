@@ -16,13 +16,17 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 --><!-- Designed to be merged as RelativeLayout -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ticket_line_container"
     android:layout_width="fill_parent"
     android:layout_height="@dimen/ticketLineHeight"
     android:layout_weight="0.8"
     android:background="@android:color/white"
     android:gravity="center"
     android:orientation="horizontal"
-    android:padding="5dp">
+    android:padding="5dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="@drawable/btn_ripple_effect">
 
     <opurex.client.widgets.ItemImage
         android:id="@+id/product_img"

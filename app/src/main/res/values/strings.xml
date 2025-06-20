@@ -372,5 +372,14 @@
     <!-- Divider Popup Text -->
     <string name="divider_button_positive" tools:ignore="MissingTranslation">@string/validate</string>
     <string name="divider_button_negative" tools:ignore="MissingTranslation">@string/cancel</string>
+    <string name="loading_processing">Processing...</string>
+    <string name="loading_please_wait">Please wait...</string>
+
+    <!-- Swipe Gestures -->
+    <string name="swipe_to_delete">Swipe left to delete</string>
+    <string name="swipe_to_edit">Swipe right to edit</string>
+    <string name="item_deleted">Item removed from ticket</string>
+    <string name="undo">Undo</string>
 
 </resources>
+```
