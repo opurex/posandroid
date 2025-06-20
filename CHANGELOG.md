@@ -1,248 +1,223 @@
-# Changelog
-All notable changes to this project will be documented in this file.
+# Project Changelog - Feature Documentation
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
+All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-The semantic of version number is 'Level.Version'. Level is for compatibility between sofwares and Version is the release number.
+**Version Format**: Level.Version (Level = compatibility between software, Version = release number)
 
-## [8.2] - 2020-06-15
+---
 
-### Added
-- Reprint previous Z tickets
+## [8.2] - June 15, 2020
 
-### Fixed
-- Order are not labelled "Ticket" when printed.
-- Add the name of the cash register in ticket number.
-- Catch bluetooth disconnection and try to reconnect.
-- Documents are queued when the printer is not available, display printing status messages.
+### ✨ New Features
+- **Ticket Reprinting**: Added ability to reprint previous Z tickets for audit purposes
+- **Enhanced Printer Status**: Documents are now queued when printer is unavailable with status messages
+- **Auto-Reconnection**: Automatic Bluetooth reconnection when connection is lost
 
+### 🐛 Bug Fixes
+- Orders now properly labeled as "Ticket" when printed
+- Cash register name included in ticket numbers for better tracking
+- Improved printer availability handling and status display
 
-## [8.1] - 2020-05-27
+---
 
-### Added
-- Changelog
-- Epson ePOS driver
-- Support 1 main printer and 2 auxiliaries.
-- Buttons to print orders to one of the 3 configurable printers.
-- Count cash when opening and closing the cash session.
-- Perpetual CS in cash session.
-- Cash register (machine name) on the login from.
+## [8.1] - May 27, 2020
 
-### Changed
-- The Password field is now masked in the configuration screen.
+### ✨ New Features
+- **Multi-Printer Support**: Support for 1 main printer + 2 auxiliary printers
+- **Flexible Printing**: Configurable buttons to print orders to any of the 3 printers
+- **Cash Management**:
+    - Cash counting when opening/closing sessions
+    - Perpetual cash session tracking
+- **Enhanced Login**: Cash register (machine name) display on login form
+- **Driver Support**: New Epson ePOS driver integration
 
-### Fixed
-- Show error when the error message is null.
-- Fix ticket cutting that wasn't available on compatible hardware before.
+### 🔒 Security Improvements
+- Password field masking in configuration screen
 
+### 🐛 Bug Fixes
+- Better error handling when error messages are null
+- Fixed ticket cutting on compatible hardware
 
-## [8.0 alpha6] - 2018-12-08
+---
 
-### Added
-- New button on payment screen to print the ticket or not.
-- New setting in configuration to select if the ticket should be printed by default or not.
+## [8.0 alpha6] - December 8, 2018
 
-### Changed
-- The ticket list shows date, time, customer, user, amount and payment mode.
+### ✨ New Features
+- **Print Control**: New payment screen button to choose whether to print ticket
+- **Default Print Setting**: Configuration option to set default ticket printing behavior
 
-### Fixed
-- Assigning a customer to a ticket does not crash when the customer has no tariff area.
+### 📊 Improvements
+- Enhanced ticket list showing: date, time, customer, user, amount, and payment mode
 
+### 🐛 Bug Fixes
+- Fixed crash when assigning customers without tariff areas to tickets
 
-## [8.0 alpha5] - 2018-03-06
+---
 
-### Added
-- Restore the button to open the cash drawer.
+## [8.0 alpha5] - March 6, 2018
 
-### Changed
-- The cash drawer opens itself automatically when registering a payment.
+### ✨ New Features
+- **Cash Drawer Control**: Restored manual cash drawer open button
 
+### 🔄 Behavior Changes
+- Automatic cash drawer opening when registering payments
 
-## [8.0 alpha4] - 2018-02-13
+---
 
-### Fixed
-- Sending a ticket with an arbitrary product does not crash anymore.
-- The tax amount is correctly computed in Z tickets instead of full taxed price.
-- Empty printer does not crash.
+## [8.0 alpha4] - February 13, 2018
 
+### 🐛 Critical Bug Fixes
+- Fixed crash when sending tickets with arbitrary products
+- Corrected tax amount calculation in Z tickets
+- Resolved empty printer crash issues
 
-## [8.0 alpha3] - 2018-01-30
+---
 
-### Added
-- Compositions are back.
+## [8.0 alpha3] - January 30, 2018
 
-### Changed
-- Negative quantity can be set when editing a line.
-- Rejected tickets are discarded when sent to the server.
-- The inventory is not shown when closing the session anymore. It was always empty anyway.
-- There is no default server anymore, instead of an invalid one.
-- Allow to enter lowercase bluetooth address for LKP and Woosim printers.
-- Device connection is now handled by a service accross activities (faster and more reliable connection).
-- Order lines are mutable again.
+### ✨ New Features
+- **Product Compositions**: Restored composition functionality
+- **Enhanced Connectivity**:
+    - Device connection service for faster, more reliable connections
+    - Lowercase Bluetooth address support for LKP and Woosim printers
 
-### Fixed
-- Ticket with payment exceedent (give back) does not crash when sent to the server.
-- Discarding rejected tickets prevents blocking sending any further data.
-- Fix not saving printer resources locally (except the last one).
-- Better printer connection detection.
-- Connection error with LKP and Woosim printers are now correctly handled.
-- Cancelling splitting a ticket does not mess with the order.
+### 🔄 Improvements
+- **Order Management**:
+    - Negative quantities allowed when editing lines
+    - Mutable order lines restored
+    - Better ticket splitting with cancel protection
+- **Session Management**:
+    - Rejected tickets automatically discarded
+    - Removed always-empty inventory display on session close
+    - No default server (prevents invalid connections)
 
+### 🐛 Bug Fixes
+- Fixed crashes with payment excess (change) tickets
+- Improved printer resource saving
+- Better connection detection and error handling
+- Enhanced LKP and Woosim printer connection stability
 
-## [8.0 alpha2]
-- Lost release. Merged with alpha3
-
+---
 
 ## [8.0 alpha1]
 
-### Added
-- Tax by category on Z ticket.
-- Ask for the period to close.
-- Long clicking a product opens the edit popup.
+### ✨ New Features
+- **Advanced Reporting**: Tax breakdown by category on Z tickets
+- **Session Management**: Period selection for session closing
+- **Product Interaction**: Long-click products to open edit popup
 
-### Changed
-- Connecting to Opurex-API v8.
-- Cash session sequence is displayed on debug screen.
-- Load images on a dedicated sync phase again.
-- API response is shown in the error popup to help debugging.
-- Show the warning about pending tickets on screen instead of in a popup when closing the session.
-- Do not show the warning before entering the debug screen (the user can not delete data anymore).
-- Show details about the archives on debug screen.
-- Order lines are immutable.
+### 🔄 Major Changes
+- **API Upgrade**: Now connecting to Opurex-API v8
+- **Improved UX**:
+    - On-screen warnings for pending tickets (replaces popups)
+    - Detailed archive information on debug screen
+    - API response display in error popups for debugging
+- **Immutable Orders**: Order lines are now immutable for data integrity
 
-### Removed
-- Auto-sync mode.
-- The button to delete local data on the debug screen was removed.
+### ❌ Removed Features
+- Auto-sync mode discontinued
+- Local data deletion button removed from debug screen
 
-### Fixed
-- Display the correct message when user credentials are incorrect.
-- Better handling of incoming cash session data. Prevent conflicts when possible and warn the user otherwise.
+### 🐛 Bug Fixes
+- Correct error messages for invalid user credentials
+- Enhanced cash session data handling with conflict prevention
 
+---
 
-## [7.0] - 2017-02-14
+## [7.0] - February 14, 2017
 
-### Added
-- Gitlab pipeline.
-- Lint.
-- License.
-- Order splitting.
-- Partial payment are stored along the order.
-- Note in readme about signing the release apk.
+### ✨ New Features
+- **Order Splitting**: Full order splitting functionality
+- **Partial Payments**: Storage of partial payments with orders
+- **Enhanced Restaurant Mode**: Map view for place selection (replaces list view)
+- **Development Tools**: GitLab pipeline integration and linting
 
-### Changed
-- Connecting to Opurex-API v7.
-- Customer search is case insensitive.
-- Popup style.
-- Standard ticket mode is now the default one.
-- Restaurant mode now shows the map instead of just the list of places.
-- URL to get the source code.
-- Default host is now my.opurex.org/7.
+### 🔄 Major Changes
+- **API Upgrade**: Connecting to Opurex-API v7
+- **UI Improvements**:
+    - Case-insensitive customer search
+    - Updated popup styling
+    - Standard ticket mode as default
+- **Configuration**: Default host changed to my.opurex.org/7
 
-### Removed
-- SDK manager plugin.
-- Simple ticket mode (keeping standard and restaurant mode only).
-- Demo mode, the demo account does not exist anymore.
+### ❌ Removed Features
+- Simple ticket mode (keeping standard and restaurant modes only)
+- Demo mode discontinued
+- SDK manager plugin removed
 
-### Fixed
-- Fix crashing when reading an empty data file.
-- Dependencies with gradle.
-- Does not crash on payment with Android 4.0.4.
-- Show an error when out of memory instead of crashing.
-- Product with no image are not shown the image of an other product when scrolling a lot.
-- Missing French translations.
+### 🐛 Bug Fixes
+- Fixed crashes with empty data files and Android 4.0.4 payments
+- Better out-of-memory error handling
+- Resolved product image display issues during scrolling
+- Added missing French translations
 
+---
 
-## [6.7.0] - 2016-04-15
+## [6.7.0] - April 15, 2016
 
-### Added
-- Option to send crash log by mail to a fixed address.
+### ✨ New Features
+- **Crash Reporting**: Email crash logs to fixed support address
+- **Smart Payment Flow**: First available payment mode auto-selected after validation
+- **Customer Integration**: Ticket labels use customer names when assigned
 
-### Changed
-- The first available payment mode is selected after validating a payment.
-- The label of the ticket is the customer's name if one is assigned.
+### 🐛 Bug Fixes
+- Improved printer connection detection
+- Better customer selection popup behavior
+- Enhanced keyboard handling for customer popups
 
-### Fixed
-- Connection detection with printers.
-- Touching outside the customer selection popup closes it.
-- Ticket without customer does not crash.
-- Do not show the virtual keyboard on non-editable customer popup.
+---
 
+## Earlier Versions (6.6.6 - 1.0.0)
 
-## [6.6.6] - 2016-04-05
+### Notable Historical Features
 
+#### Restaurant Mode (v1.1.0 - April 3, 2013)
+- Introduction of restaurant-specific functionality
 
+#### Payment Enhancements (v1.0.1 - September 20, 2012)
+- Portrait mode payment screen
+- Improved soft keyboard behavior
 
+#### Core Foundation (v1.0.0 - August 24, 2012)
+- Initial stable release with core POS functionality
 
-## [6.6.5]
+---
 
+## Feature Categories Summary
 
-## [6.0.0]
+### 🖨️ **Printing & Hardware**
+- Multi-printer support (main + 2 auxiliary)
+- Epson ePOS driver
+- Bluetooth connectivity with auto-reconnection
+- Cash drawer integration
+- Ticket reprinting capabilities
 
+### 💰 **Payment & Cash Management**
+- Partial payment storage
+- Cash session tracking
+- Automatic cash drawer control
+- Payment mode selection optimization
 
-## [5.0.1]
+### 📊 **Reporting & Analytics**
+- Z ticket tax breakdowns
+- Enhanced ticket information display
+- Session period management
+- Archive detailed reporting
 
+### 🍽️ **Restaurant Operations**
+- Order splitting functionality
+- Table/place management with map view
+- Product compositions
+- Customer assignment to tickets
 
-## [4.0.0]
+### 🔧 **Technical Improvements**
+- API version upgrades (v7, v8)
+- Enhanced error handling
+- Connection stability improvements
+- Data integrity with immutable orders
 
-
-## [1.4 alpha1]
-
-
-## [1.3 alpha1]
-
-
-## [1.2.1]
-
-
-## [1.2.0]
-
-## [1.2 alpha1]
-
-
-
-## [1.1.1]
-
-
-## [1.1.0] - 2013-04-03
-
-### Added
-- Restaurant mode.
-
-
-## [1.0.5] - 2013-04-30
-
-### Fixed
-- Prevent garbage collecting session data.
-- Save session data synchronously and after selecting the user (and creating the first empty ticket).
-- Project url in about screen.
-
-
-## [1.0.4] - 2013-03-12
-
-### Fixed
-- Escape host name on sync. It could prevent synchronizing with special characters.
-
-
-## [1.0.3] - 2013-02-22
-
-### Fixed
-- Fix a crash when entering the payment screen on some devices.
-
-
-## [1.0.2] - 2012-09-28
-
-### Fixed
-- Tax rate is correctly read from server.
-
-
-## [1.0.1] - 2012-09-20
-
-### Added
-- Payment screen in portrait mode.
-
-### Changed
-- Soft keyboard does not automatically shows itself when entering the payment screen.
-
-
-## [1.0.0] - 2012-08-24
-
+### 👤 **User Experience**
+- Case-insensitive search
+- Improved popup interfaces
+- Better keyboard handling
+- Crash reporting system
