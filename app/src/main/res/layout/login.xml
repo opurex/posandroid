@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+    <ImageView android:id="@+id/opurex_logo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:padding="16dp"
+            android:src="@drawable/logo"/>
+
+    <LinearLayout
+
+            android:layout_width="300dp"
+            android:layout_centerInParent="true"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/opurex_logo"
+            android:gravity="center"
+            android:orientation="vertical">
+
+        <EditText
+                android:id="@+id/host"
+                android:layout_width="match_parent"
+                android:textColorHint="@color/btn_action"
+                android:imeOptions="actionNext"
+                android:layout_height="wrap_content"
+                android:nextFocusDown="@+id/login"
+                android:layout_margin="8dp"
+                android:padding="8dp"
+                android:selectAllOnFocus="true"
+                android:inputType="textNoSuggestions"
+                android:textColor="@color/btn_action"
+                android:hint="@string/config_host_title"/>
+
+        <EditText
+                android:id="@+id/login"
+                android:layout_width="match_parent"
+                android:textColorHint="@color/btn_action"
+                android:imeOptions="actionNext"
+                android:layout_height="wrap_content"
+                android:nextFocusDown="@+id/password"
+                android:layout_margin="8dp"
+                android:padding="8dp"
+                android:selectAllOnFocus="true"
+                android:inputType="textNoSuggestions"
+                android:textColor="@color/btn_action"
+                android:hint="@string/config_user_title"/>
+
+        <EditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:imeOptions="actionNext"
+                android:textColorHint="@color/btn_action"
+                android:layout_height="wrap_content"
+                android:nextFocusDown="@+id/cashregister"
+                android:layout_margin="8dp"
+                android:padding="8dp"
+                android:selectAllOnFocus="true"
+                android:textColor="@color/btn_action"
+                android:hint="@string/config_password_title"
+                android:inputType="textPassword"/>
+
+        <CheckBox
+                android:id="@+id/show_password"
+                android:layout_marginLeft="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="@string/show_password"/>
+
+        <EditText
+                android:id="@+id/cashregister"
+                android:layout_width="match_parent"
+                android:imeOptions="actionDone"
+                android:textColorHint="@color/btn_action"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:padding="8dp"
+                android:selectAllOnFocus="true"
+                android:textColor="@color/btn_action"
+                android:hint="@string/config_machine_name_title"
+                android:inputType="textNoSuggestions"/>
+
+        <Button
+                android:text="@string/connection"
+                android:textColor="@color/btn_action_txt"
+                android:id="@+id/signin"
+                android:background="@drawable/btn_action"
+                android:layout_margin="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <Button
+                android:text="@string/register"
+                android:textColor="@color/btn_action_txt"
+                android:id="@+id/signup"
+                android:background="@drawable/btn_action"
+                android:layout_margin="16dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"/>
+        <Button
+                android:text="@string/demo"
+                android:textColor="@color/btn_action_txt"
+                android:id="@+id/demo"
+                android:layout_margin="16dp"
+                android:background="@drawable/btn_action"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"/>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

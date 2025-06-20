@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Opurex Android client
+    Copyright (C) Opurex contributors, see the COPYRIGHT file
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <Button android:layout_width="wrap_content"
+            android:id="@+id/connectButton"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@color/btn_action"
+            android:textColor="@color/btn_action_txt"
+            android:text="@string/connect_update"
+            android:padding="20dp"
+            />
+    <View android:layout_width="match_parent" android:layout_height="1dp"
+          android:layout_alignParentTop="true"
+          android:background="@android:color/white"
+          android:id="@+id/divider"/>
+
+
+    <!--MatchParent Banner and left textView-->
+    <RelativeLayout android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:id="@+id/container"
+                 android:layout_below="@+id/divider"
+                 android:background="@color/accent1">
+        <TextView
+                android:id="@+id/status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:lines="3"
+                android:layout_margin="10dp"
+                android:layout_centerInParent="true"
+                android:textColor="@android:color/white"/>
+    </RelativeLayout>
+
+    <RelativeLayout android:layout_below="@+id/container"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+        <GridView android:id="@+id/loginGrid"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_centerInParent="true"
+                  android:columnWidth="@dimen/loginBtnWidth"
+                  android:horizontalSpacing="@dimen/btnSpacing"
+                  android:numColumns="2"
+                  android:stretchMode="spacingWidthUniform"
+                  android:gravity="center"
+                  android:verticalSpacing="@dimen/btnSpacing"/>
+    </RelativeLayout>
+
+
+</RelativeLayout>

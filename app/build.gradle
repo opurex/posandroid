@@ -1,0 +1,258 @@
+// Plugins block must come first
+plugins {
+    id 'com.android.application'
+//    id 'kotlin-android' // Add this if you are using Kotlin
+}
+
+import java.util.Properties // Only one import needed
+
+def keystoreProperties = new Properties()
+// Assuming this build.gradle is in your app module (e.g., opurexpos-android/app/build.gradle)
+// and keystore.properties is in that same 'app' directory.
+def keystorePropertiesFile = file("keystore.properties") // Corrected path for app module's build.gradle
+
+// Debugging for keystore.properties loading (early check)
+println "== Keystore Properties Initial Load Check =="
+println "Keystore properties file path (expected): ${keystorePropertiesFile.absolutePath}"
+println "Keystore properties file exists: ${keystorePropertiesFile.exists()}"
+
+if (keystorePropertiesFile.exists()) {
+    keystorePropertiesFile.withInputStream { stream ->
+        keystoreProperties.load(stream)
+    }
+    println "Loaded keystore properties. Keys found: ${keystoreProperties.stringPropertyNames()}"
+} else {
+    println "Keystore properties file NOT FOUND at: ${keystorePropertiesFile.absolutePath}"
+}
+println "==========================================="
+
+
+repositories {
+    google()
+    mavenCentral()
+}
+
+ext {
+    allFlavors = [
+            "wcr"    : [packageName    : "com.opurex.client.wcr",
+                        applicationName: "wcr"],
+            "vanilla": [packageName    : "com.opurex.client.vanilla",
+                        applicationName: "Opurex POS"]
+    ]
+}
+
+def accountFile = file("account.gradle") // Assumes account.gradle is in the same directory as this build.gradle
+if (accountFile.exists()) {
+    apply from: accountFile
+}
+
+android {
+    namespace 'com.opurex.client'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.opurex.client"
+        minSdkVersion 14
+        targetSdk 34
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        versionCode 1
+        versionName "1.0"
+    }
+
+    // compileOptions, sourceSets, etc. remain the same unless specified
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    // Keystore Debugging within Android block
+    println "== Signing Config Debug (within Android block) =="
+    println "Keystore properties file path (check): ${keystorePropertiesFile.absolutePath}"
+    println "Keystore properties file exists (check): ${keystorePropertiesFile.exists()}"
+    if (keystorePropertiesFile.exists()) {
+        // Re-load into a temporary properties object for fresh check if needed,
+        // but keystoreProperties should already be loaded from above.
+        // For safety, let's use the already loaded 'keystoreProperties'
+        println "Loaded keystore properties (check). Keys: ${keystoreProperties.stringPropertyNames()}"
+        println "Has keyAlias: ${keystoreProperties.containsKey('keyAlias')}, Value: ${keystoreProperties.getProperty('keyAlias')}"
+        println "Has keyPassword: ${keystoreProperties.containsKey('keyPassword')}" // Don't print password value
+        println "Has storeFile: ${keystoreProperties.containsKey('storeFile')}, Value: ${keystoreProperties.getProperty('storeFile')}"
+        println "Has storePassword: ${keystoreProperties.containsKey('storePassword')}" // Don't print password value
+
+        if (keystoreProperties.containsKey('storeFile')) {
+            def prospectiveStoreFilePath = keystoreProperties.getProperty('storeFile')
+            // 'file()' here resolves relative to the current module (app module)
+            def actualStoreFile = file(prospectiveStoreFilePath)
+            println "Prospective storeFile path (from keystore.properties): ${prospectiveStoreFilePath}"
+            println "Resolved actual storeFile path (relative to module): ${actualStoreFile.absolutePath}"
+            println "Resolved actual storeFile exists: ${actualStoreFile.exists()}"
+        }
+    }
+    println "================================================="
+
+    signingConfigs {
+        release {
+            // Check if all necessary properties are loaded and the actual .jks file exists
+            def actualStoreFileExists = false
+            if (keystorePropertiesFile.exists() && keystoreProperties.containsKey('storeFile')) {
+                actualStoreFileExists = file(keystoreProperties.getProperty('storeFile', '')).exists()
+            }
+
+            if (keystorePropertiesFile.exists() &&
+                    keystoreProperties.containsKey('keyAlias') &&
+                    keystoreProperties.containsKey('keyPassword') &&
+                    keystoreProperties.containsKey('storeFile') &&
+                    keystoreProperties.containsKey('storePassword') &&
+                    actualStoreFileExists) { // Crucial: check if the .jks file itself exists
+
+                keyAlias keystoreProperties['keyAlias']
+                keyPassword keystoreProperties['keyPassword']
+                // 'file()' resolves relative to the current module (app module)
+                storeFile file(keystoreProperties['storeFile'])
+                storePassword keystoreProperties['storePassword']
+                println "Release signing config is properly configured."
+            } else {
+                println "WARNING: Keystore properties not fully configured for release build OR the .jks file is missing."
+                println "  Debug Info:"
+                println "    keystore.properties exists: ${keystorePropertiesFile.exists()}"
+                println "    has keyAlias: ${keystoreProperties.containsKey('keyAlias')}"
+                println "    has keyPassword: ${keystoreProperties.containsKey('keyPassword')}"
+                println "    has storeFile: ${keystoreProperties.containsKey('storeFile')}"
+                println "    has storePassword: ${keystoreProperties.containsKey('storePassword')}"
+                if (keystoreProperties.containsKey('storeFile')) {
+                    println "    actual .jks file (${keystoreProperties.getProperty('storeFile', '')}) exists: ${file(keystoreProperties.getProperty('storeFile', '')).exists()}"
+                } else {
+                    println "    actual .jks file cannot be checked because 'storeFile' key is missing in keystore.properties"
+                }
+                // Optionally fall back to debug signing to allow builds
+                // signingConfig signingConfigs.debug
+            }
+        }
+        // It's good practice to also define a debug signing config,
+        // even if it uses the default debug keystore.
+        debug {
+            // Android Studio uses a default debug keystore. No explicit config needed here
+            // unless you want to use a custom debug keystore.
+        }
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled false
+            // proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            // Ensure debug builds are signable, typically uses the default debug keystore
+            signingConfig signingConfigs.debug // Explicitly assign debug signing
+            applicationIdSuffix ".debug"
+            debuggable true
+        }
+    }
+
+    packagingOptions {
+        resources {
+            excludes += [
+                    'META-INF/LICENSE',
+                    'META-INF/NOTICE',
+                    'META-INF/NOTICE.txt',
+                    'META-INF/INDEX.LIST',
+                    'META-INF/LICENSE.txt',
+                    'META-INF/DEPENDENCIES'
+            ]
+        }
+    }
+
+    flavorDimensions "opurex"
+    productFlavors {
+        allFlavors.each { flavorName, config ->
+            create(flavorName) {
+                dimension "opurex"
+                applicationId config.packageName
+                if (config.containsKey('applicationName')) {
+                    resValue "string", "app_name", config.applicationName
+                }
+                if (project.hasProperty("account") && account != null) {
+                    resValue "string", "default_host", account.host ?: ""
+                    resValue "string", "default_user", account.user ?: ""
+                    resValue "string", "default_password", account.password ?: ""
+                    resValue "string", "default_cash", account.cash ?: ""
+                    resValue "bool", "hasDefaultAccount", "true"
+                } else {
+                    resValue "string", "default_host", ""
+                    resValue "string", "default_user", ""
+                    resValue "string", "default_password", ""
+                    resValue "string", "default_cash", ""
+                    resValue "bool", "hasDefaultAccount", "false"
+                }
+            }
+        }
+    }
+
+    lint {
+        abortOnError false
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+    testNamespace 'com.opurex.client.test'
+    buildFeatures {
+        buildConfig true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // AndroidX Core & Support Libraries
+    implementation 'androidx.annotation:annotation:1.9.1' // Or latest stable version
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.legacy:legacy-support-v13:1.0.0'
+    // Provides androidx.fragment.app.FragmentStatePagerAdapter
+
+    // Your existing libraries (these are fine, no AndroidX equivalent needed)
+    implementation 'com.google.code.gson:gson:2.11.0'
+    implementation 'commons-io:commons-io:2.16.1'
+    implementation 'com.google.zxing:core:3.5.2'
+
+    // AndroidX Test Libraries
+    // Core test utilities
+    testImplementation 'junit:junit:4.13.2' // Stays the same
+    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
+    // Replaces com.android.support.test:runner
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
+    // For UI tests, recommended
+
+    // PowerMock and EasyMock - These can be tricky with modern Android & Kotlin.
+    // Consider migrating to Mockito or MockK if possible for better compatibility.
+    // If you must keep them for now:
+    testImplementation 'org.powermock:powermock-module-junit4:2.0.9'
+    testImplementation 'org.powermock:powermock-api-easymock:2.0.9'
+    testImplementation 'org.easymock:easymock:5.2.0'
+    // Note: You might need additional configurations for PowerMock to work correctly
+    // with AndroidX, especially if you use Robolectric or run tests on newer JVMs.
+
+    testImplementation 'org.skyscreamer:jsonassert:1.5.1' // Stays the same
+}
+
+// Utility tasks
+tasks.register('flavors') {
+    doLast {
+        allFlavors.each { name, config ->
+            println "$name"
+        }
+    }
+}
+
+tasks.register('sourcesInfo') {
+    doLast {
+        android.sourceSets.each { sourceSet ->
+            println "SourceSet: ${sourceSet.name}"
+            println "  Java dirs: ${sourceSet.java.srcDirs}"
+            println "  Manifest file: ${sourceSet.manifest.srcFile}"
+            println "  Resources dirs: ${sourceSet.res.srcDirs}"
+        }
+    }
+}

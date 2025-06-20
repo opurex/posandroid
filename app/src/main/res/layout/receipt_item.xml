@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Opurex Android client
+    Copyright (C) Opurex contributors, see the COPYRIGHT file
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<!-- Designed to be merged as RelativeLayout -->
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+  <!-- Left part: number -->
+  <TextView android:id="@+id/receipt_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_margin="@dimen/contentMargin" />
+  <!-- Left part 2: Date and time -->
+  <TextView android:id="@+id/receipt_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/receipt_label"
+            android:layout_margin="@dimen/contentMargin" />
+  <TextView android:id="@+id/receipt_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/receipt_date"
+            android:layout_below="@id/receipt_date"
+            android:layout_margin="@dimen/contentMargin" />
+  <!-- Rightmost part: user -->
+  <TextView android:id="@+id/receipt_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_margin="@dimen/contentMargin" />
+  <!-- Rightmost part 2: amount -->
+  <TextView android:id="@+id/receipt_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/receipt_user"
+            android:layout_margin="@dimen/contentMargin" />
+  <!-- Center: Payment mode and customer (stretchable) -->
+  <TextView android:id="@+id/receipt_payment_mode"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@id/receipt_date"
+            android:layout_toLeftOf="@id/receipt_amount"
+            android:gravity="center_horizontal"
+            android:layout_weight="1"
+            android:layout_margin="@dimen/contentMargin" />
+  <TextView android:id="@+id/receipt_customer"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_toRightOf="@id/receipt_time"
+            android:layout_toLeftOf="@id/receipt_amount"
+            android:layout_below="@id/receipt_label"
+            android:layout_weight="1"
+            android:layout_margin="@dimen/contentMargin" />
+  <!-- Bottom part: content -->
+  <TextView android:id="@+id/receipt_content"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/receipt_customer"
+            android:layout_margin="@dimen/contentMargin" />
+</merge>
