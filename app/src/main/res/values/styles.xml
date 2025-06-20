@@ -1,4 +1,3 @@
-
 <?xml version="1.0" encoding="utf-8"?><!--
     Café Citoyen
     Copyright (C) 2012 Cédric Houbart (cedric@scil.com)
@@ -31,11 +30,11 @@
     <color name="primary">#1976D2</color>
     <color name="primary_dark">#1565C0</color>
     <color name="primary_light">#BBDEFB</color>
-    
+
     <!-- Accent colors -->
     <color name="accent">#FF6F00</color>
     <color name="accent_light">#FFB74D</color>
-    
+
     <!-- Action bar, popup tabs... -->
     <color name="accent1">#1976D2</color>
     <color name="accent1_pressed">#1565C0</color>
@@ -258,9 +257,10 @@
         <item name="cornerRadius">@dimen/btnCornerRadius</item>
     </style>
 
-    <style name="btnTicket" parent="MaterialButton">
+    <style name="btnTicket" parent="Widget.Material3.Button">
         <item name="backgroundTint">@color/primary</item>
         <item name="android:textColor">@color/accent1_txt</item>
+        <item name="rippleColor">@color/primary_light</item>
     </style>
 
     <style name="btnTicket.btn_add" parent="btnTicket">

@@ -82,6 +82,7 @@
                 style="@style/btnTicket.btn_subtract"
                 android:layout_width="@dimen/smallBtnWidth"
                 android:layout_height="@dimen/smallBtnHeight"
+                android:foreground="?android:attr/selectableItemBackgroundBorderless"
                 android:src="@drawable/btn_subtract" />
 
             <include layout="@layout/separator" />
@@ -91,6 +92,7 @@
                 style="@style/btnTicket.btn_add"
                 android:layout_width="@dimen/smallBtnWidth"
                 android:layout_height="@dimen/smallBtnHeight"
+                android:foreground="?android:attr/selectableItemBackgroundBorderless"
                 android:src="@drawable/btn_add" />
 
             <include layout="@layout/separator" />
@@ -100,6 +102,7 @@
                 style="@style/btnTicket"
                 android:layout_width="@dimen/smallBtnWidth"
                 android:layout_height="@dimen/smallBtnHeight"
+                android:foreground="?android:attr/selectableItemBackgroundBorderless"
                 android:src="@drawable/btn_delete" />
 
             <include layout="@layout/separator" />

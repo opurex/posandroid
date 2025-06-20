@@ -118,6 +118,9 @@
     <string name="close_type_simple">Day</string>
     <string name="close_running_ticket_message">Some tickets are currently active. Closing cash will dismiss them.</string>
     <string name="close_cash">Close cash</string>
+    <string name="processing">Processing...</string>
+    <string name="loading_transaction">Processing transaction...</string>
+    <string name="loading_payment">Processing payment...</string>
     <string name="close_z_title">Z ticket</string>
     <string name="close_stock_title">Remaining stock</string>
 
