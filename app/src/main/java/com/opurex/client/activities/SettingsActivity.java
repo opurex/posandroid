@@ -8,7 +8,11 @@ import android.widget.SeekBar;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.appcompat.widget.SwitchCompat;
+
 import com.opurex.client.R;
+import com.opurex.client.drivers.POSDeviceManager;
+import com.opurex.client.drivers.utils.DeviceManagerEvent;
 import com.opurex.client.utils.ThemeManager;
 import com.opurex.client.utils.InventoryManager;
 import com.opurex.client.utils.ImageCache;
@@ -21,8 +25,8 @@ public class SettingsActivity extends POSConnectedTrackedActivity {
     private InventoryManager inventoryManager;
     private ImageCache imageCache;
     
-    private Switch darkModeSwitch;
-    private Switch largeTextSwitch;
+    private SwitchCompat darkModeSwitch;
+    private SwitchCompat largeTextSwitch;
     private SeekBar stockThresholdSeekBar;
     private TextView stockThresholdValue;
     private TextView cacheSize;
@@ -30,7 +34,7 @@ public class SettingsActivity extends POSConnectedTrackedActivity {
     private Button checkInventoryButton;
     
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings_activity);
         

@@ -48,6 +48,11 @@ public class Catalog implements Serializable {
         this.barcodeDb = new TreeMap<String, Product>();
     }
 
+    public List<Product> getAllProducts() {
+        return new ArrayList<>(this.database.values());
+    }
+
+
     /**
      * Add a root category and all its subcategories.
      * Warning: subcategories should not be added after, this would cause

@@ -1,7 +1,5 @@
 package com.opurex.client.data.DataSavable;
 
-import android.test.suitebuilder.annotation.MediumTest;
-import android.test.suitebuilder.annotation.SmallTest;
 import com.opurex.client.Constant;
 import com.opurex.client.models.Catalog;
 import com.opurex.client.utils.exception.DataCorruptedException;

@@ -68,7 +68,13 @@
     <color name="surface_variant">#F5F5F5</color>
     <color name="on_surface">#212121</color>
     <color name="on_surface_variant">#757575</color>
+    <color name="outline">#79747E</color> <!-- ✅ Add this line -->
 
+    <color name="background_light">#FFFFFF</color>
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
+<!--    <color name="primary">#6200EE</color> &lt;!&ndash; If not already defined &ndash;&gt;-->
+<!--    <color name="primary_dark">#3700B3</color>-->
     <!-- Dark theme colors -->
     <color name="dark_primary">#BB86FC</color>
     <color name="dark_primary_dark">#3700B3</color>
@@ -78,6 +84,31 @@
     <color name="dark_on_surface_variant">#CCCCCC</color>
     <color name="dark_accent">#03DAC6</color>
     <color name="dark_background">#0A0A0A</color>
+
+
+<!--    &lt;!&ndash; Backgrounds &ndash;&gt;-->
+<!--    <color name="background_light">#FAFAFA</color>-->
+
+<!--    &lt;!&ndash; Primary Colors &ndash;&gt;-->
+<!--    <color name="primary">#2196F3</color> &lt;!&ndash; Blue 500 &ndash;&gt;-->
+<!--    <color name="primary_dark">#1976D2</color>-->
+<!--    <color name="accent">#FF9800</color> &lt;!&ndash; Orange 500 &ndash;&gt;-->
+
+<!--    &lt;!&ndash; Text Colors &ndash;&gt;-->
+<!--    <color name="text_primary">#212121</color> &lt;!&ndash; Almost black &ndash;&gt;-->
+<!--    <color name="text_secondary">#757575</color> &lt;!&ndash; Grey &ndash;&gt;-->
+
+    <!-- Semantic Colors -->
+    <color name="success">#4CAF50</color> <!-- Green 500 -->
+    <color name="warning">#FFC107</color> <!-- Amber 500 -->
+    <color name="info">#03A9F4</color> <!-- Light Blue 500 -->
+
+    <!-- Chart Colors -->
+    <color name="chart_line">#3F51B5</color> <!-- Indigo 500 -->
+    <color name="chart_pie_1">#E91E63</color>
+    <color name="chart_pie_2">#9C27B0</color>
+    <color name="chart_pie_3">#00BCD4</color>
+
 
     <!-- Very specific colors. Should generally reference one of the above. -->
     <color name="tab_unselected">@color/surface_variant</color>
@@ -198,7 +229,7 @@
 
     <!-- STYLES -->
     <!-- Base Application Theme - Material Design -->
-    <style name="POSTechTheme" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="POSTechTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryDark">@color/primary_dark</item>
         <item name="colorAccent">@color/accent</item>
@@ -209,6 +240,8 @@
         <item name="android:statusBarColor">@color/primary_dark</item>
         <item name="android:navigationBarColor">@color/surface</item>
         <item name="android:windowLightStatusBar">false</item>
+        <!-- You can also define default styles for widgets here -->
+        <item name="materialCardViewStyle">@style/CardStyle</item>
     </style>
 
     <!-- Material Toolbar Theme -->
@@ -220,7 +253,15 @@
     </style>
 
     <!-- Card styles -->
-    <style name="CardStyle" parent="Widget.Material3.CardView">
+<!--    <style name="CardStyle" parent="Widget.Material3.CardView">-->
+<!--        <item name="cardCornerRadius">@dimen/btnCornerRadius</item>-->
+<!--        <item name="cardElevation">@dimen/elevation_card</item>-->
+<!--        <item name="cardBackgroundColor">@color/surface</item>-->
+<!--        <item name="contentPadding">@dimen/contentMargin</item>-->
+<!--    </style>-->
+    <style name="CardStyle" parent="Widget.Material3.CardView.Elevated">
+        <!-- or Widget.Material3.CardView.Filled -->
+        <!-- or Widget.Material3.CardView.Outlined -->
         <item name="cardCornerRadius">@dimen/btnCornerRadius</item>
         <item name="cardElevation">@dimen/elevation_card</item>
         <item name="cardBackgroundColor">@color/surface</item>
@@ -296,7 +337,7 @@
     <dimen name="numBtnHeight">64dp</dimen>
 
     <!-- Material Text styles -->
-    <style name="itemLabel" parent="Widget.Material3.TextView">
+    <style name="itemLabel" parent="Widget.AppCompat.TextView">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center</item>
@@ -327,7 +368,7 @@
         <item name="android:textColor">@color/accent3_txt</item>
     </style>
 
-    <style name="popup_header" parent="Widget.Material3.TextView">
+    <style name="popup_header" parent="Widget.AppCompat.TextView">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:padding">@dimen/popupGeneralPadding</item>
@@ -356,7 +397,6 @@
     <!-- Material Input styles -->
     <style name="MaterialTextInput" parent="Widget.Material3.TextInputLayout.OutlinedBox">
         <item name="boxStrokeColor">@color/primary</item>
-        <item name="boxStrokeColorFocused">@color/primary</item>
         <item name="hintTextColor">@color/on_surface_variant</item>
         <item name="android:textColorHint">@color/on_surface_variant</item>
         <item name="helperTextTextColor">@color/on_surface_variant</item>
@@ -386,18 +426,18 @@
     </style>
 
     <!-- Professional typography styles -->
-    <style name="HeadlineText" parent="Widget.Material3.TextView">
+    <style name="HeadlineText" parent="Widget.AppCompat.TextView">
         <item name="android:textSize">@dimen/textTitle</item>
         <item name="android:textColor">@color/on_surface</item>
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="BodyText" parent="Widget.Material3.TextView">
+    <style name="BodyText" parent="Widget.AppCompat.TextView">
         <item name="android:textSize">@dimen/textMedium</item>
         <item name="android:textColor">@color/on_surface</item>
     </style>
 
-    <style name="CaptionText" parent="Widget.Material3.TextView">
+    <style name="CaptionText" parent="Widget.AppCompat.TextView">
         <item name="android:textSize">@dimen/textSmall</item>
         <item name="android:textColor">@color/on_surface_variant</item>
     </style>

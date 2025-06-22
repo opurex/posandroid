@@ -18,27 +18,25 @@
 
 package com.opurex.test;
 
-import android.test.ActivityInstrumentationTestCase2;
+import androidx.test.ext.junit.runners.AndroidJUnit4;
+import androidx.test.core.app.ActivityScenario;
+
+import com.opurex.client.Start;
+
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
-public class StartTest extends ActivityInstrumentationTestCase2<Start> {
+import static org.junit.Assert.assertNotNull;
 
-    private Start activity;
-    
-    public StartTest() {
-        super(Start.class);
-    }
-
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-
-        this.activity = getActivity();
-        
-    }
+@RunWith(AndroidJUnit4.class)
+public class StartTest {
 
     @Test
-    public void testBasic() {
-        assertTrue(true);
+    public void testStartActivityLaunches() {
+        try (ActivityScenario<Start> scenario = ActivityScenario.launch(Start.class)) {
+            scenario.onActivity(activity -> {
+                assertNotNull(activity);
+            });
+        }
     }
 }

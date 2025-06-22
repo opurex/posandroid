@@ -57,7 +57,7 @@ public class Cash implements Serializable {
     private List<TaxSum> taxes;
 
     /** Create an empty cash */
-    private Cash() {
+    Cash() {
         this.openDate = -1;
         this.closeDate = -1;
         this.taxes = new ArrayList<TaxSum>();

@@ -71,7 +71,7 @@
     </LinearLayout>
 
     <!-- Keyboard -->
-    <opurex.client.widgets.NumKeyboard
+    <com.opurex.client.widgets.NumKeyboard
         android:id="@+id/numkeyboard"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"

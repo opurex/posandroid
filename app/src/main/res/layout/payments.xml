@@ -103,7 +103,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                   android:layout_below="@id/input"
                   android:layout_toLeftOf="@id/btnCorrect" />
       </RelativeLayout>
-      <opurex.client.widgets.NumKeyboard
+      <com.opurex.client.widgets.NumKeyboard
           android:id="@+id/numkeyboard"
                                              android:layout_width="wrap_content"
                                              android:layout_height="fill_parent"

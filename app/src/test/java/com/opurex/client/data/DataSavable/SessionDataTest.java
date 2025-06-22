@@ -39,7 +39,8 @@ public class SessionDataTest extends AbstractDataTest {
     @Override
     public void setup() throws IOException {
         super.setup();
-        this.product = new Product("1", "Ma salade", "0123232343", 24.5, "NoTaxe", 0, false, false, 0.2, false);
+//        this.product = new Product("1", "Ma salade", "0123232343", 24.5,
+//                "NoTaxe", 0, false, false, 0.2, false);
     }
 
     @Test

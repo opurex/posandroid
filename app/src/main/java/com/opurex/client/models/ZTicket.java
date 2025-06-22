@@ -350,6 +350,7 @@ public class ZTicket {
         public String getReference() { return this.reference; }
         public String getLabel() { return this.label; }
         public double getAmount() { return this.amount; }
+        public double getTotal() { return this.amount; }  // <-- renamed to getTotal()
         public void add(double amount) {
             this.amount += amount;
         }

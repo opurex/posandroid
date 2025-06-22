@@ -21,7 +21,7 @@
                        style="@style/tabWidget">
             </TabWidget>
 
-            <opurex.client.widgets.RestaurantLayout
+            <com.opurex.client.widgets.RestaurantLayout
                 android:layout_width="match_parent"
                                                          android:layout_height="match_parent"
                                                          android:id="@android:id/tabcontent"/>

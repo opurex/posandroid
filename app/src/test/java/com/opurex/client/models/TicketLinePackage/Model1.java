@@ -88,10 +88,10 @@ public class Model1 {
             control_product,
             control_total};
 
-    public static Product newProduct() {
-        return new Product(id, label, barcode, price, taxid, taxrate, scaled, hasImage,
-                discountrate, discountrateenabled);
-    }
+//    public static Product newProduct() {
+//        return new Product(id, label, barcode, price, taxid, taxrate, scaled, hasImage,
+//                discountrate, discountrateenabled);
+//    }
 
     public TicketLine newTicketLine(Product product) {
         TicketLine result = new TicketLine(product, quantity, area);

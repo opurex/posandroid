@@ -2,6 +2,8 @@ buildscript {
     repositories {
         google()
         mavenCentral()
+        // Add the jitpack repository URL
+        maven { url 'https://jitpack.io' }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:8.10.1'
@@ -18,6 +20,8 @@ allprojects {
         mavenCentral()
         //noinspection JcenterRepositoryObsolete
         jcenter()  // Optional, but some older deps need it
+        maven { url 'https://jitpack.io' }
+
     }
 }
 
